@@ -1,0 +1,55 @@
+﻿@model InitiativeNepal.Config
+@{
+    Layout = ViewBag.Layout;
+}
+
+<style>
+    .relaxed.segment .container { padding: 4em; }
+</style>
+<div class="ui attached relaxed initiative nepal configuration segment">
+    <div class="ui container">
+        <div class="ui huge header">The Initiative Nepal Configuration</div>
+        <div class="ui yellow message">
+            AAYO!!! SMS is User friendly, secure, instant, uninterrupted and competitive price. Our system is used over an online so no more software installation required. SMS is highly popular among various age groups as it is simple, cool, cost-effective, easy to use, low impact, non-intrusive and high penetration power.
+        </div>
+        <div class="ui flat form">
+            <div class="field">
+                <label for="ApiUrlInputUrl">Api Url</label>
+                <input type="url" id="ApiUrlInputUrl" value="@Model.ApiUrl"/>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label for="SenderIdInputText">Sender Id</label>
+                    <input type="text" id="SenderIdInputText" value="@Model.SenderId"/>
+                </div>
+                <div class="field">
+                    <label for="AuthenticationTokenInputText">Authentication Token</label>
+                    <input type="text" id="AuthenticationTokenInputText" value="@Model.AuthenticationToken"/>
+                </div>
+            </div>
+            <div class="three fields">
+                <div class="field">
+                    <label for="MethodInputText">Method</label>
+                    <input type="text" id="MethodInputText" value="@Model.Method" />
+                </div>
+                <div class="field">
+                    <label for="AcceptHeaderInputText">Accept Header</label>
+                    <input type="text" id="AcceptHeaderInputText" value="@Model.AcceptHeader" />
+                </div>
+                <div class="field">
+                    <label for="ContentTypeInputText">Content Type</label>
+                    <input type="text" id="ContentTypeInputText" value="@Model.ContentType" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui toggle checkbox">
+                    <input id="EnabledCheckbox" type="checkbox" data-checked="@Model.Enabled.ToString().ToLower()" />
+                    <label>Is Enabled</label>
+                </div>
+            </div>
+            <button id="SaveButton" class="ui positive button">Save</button>
+        </div>
+    </div>
+</div>
+
+<script src="/Areas/InitiativeNepal/scripts/backend/index.js"></script>
