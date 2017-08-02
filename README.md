@@ -1,2 +1,2 @@
-# thesmscentral
-SMS integration with http://thesmscentral.com
+# Initiative Nepal SMS
+SMS integration with http://ininepal.com/
