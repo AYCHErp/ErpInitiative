@@ -13,32 +13,36 @@
             AAYO!!! SMS is User friendly, secure, instant, uninterrupted and competitive price. Our system is used over an online so no more software installation required. SMS is highly popular among various age groups as it is simple, cool, cost-effective, easy to use, low impact, non-intrusive and high penetration power.
         </div>
         <div class="ui flat form">
-            <div class="field">
+            <div class="required field">
                 <label for="ApiUrlInputUrl">Api Url</label>
-                <input type="url" id="ApiUrlInputUrl" value="@Model.ApiUrl"/>
-            </div>
-            <div class="two fields">
-                <div class="field">
-                    <label for="SenderIdInputText">Sender Id</label>
-                    <input type="text" id="SenderIdInputText" value="@Model.SenderId"/>
-                </div>
-                <div class="field">
-                    <label for="AuthenticationTokenInputText">Authentication Token</label>
-                    <input type="text" id="AuthenticationTokenInputText" value="@Model.AuthenticationToken"/>
-                </div>
+                <input type="url" id="ApiUrlInputUrl" required="" value="@Model.ApiUrl"/>
             </div>
             <div class="three fields">
                 <div class="field">
+                    <label for="required SenderIdInputText">Sender Id</label>
+                    <input type="text" id="SenderIdInputText" required="" value="@Model.SenderId"/>
+                </div>
+                <div class="field">
+                    <label for="required UsernameInputText">Username</label>
+                    <input type="text" id="UsernameInputText" required="" value="@Model.Username"/>
+                </div>
+                <div class="required field">
+                    <label for="PasswordInputText">Password</label>
+                    <input type="text" id="PasswordInputText" required="" value="@Model.Username" />
+                </div>
+            </div>
+            <div class="three fields">
+                <div class="required field">
                     <label for="MethodInputText">Method</label>
-                    <input type="text" id="MethodInputText" value="@Model.Method" />
+                    <input type="text" id="MethodInputText" required="" value="@Model.Method" />
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label for="AcceptHeaderInputText">Accept Header</label>
-                    <input type="text" id="AcceptHeaderInputText" value="@Model.AcceptHeader" />
+                    <input type="text" id="AcceptHeaderInputText" required="" value="@Model.AcceptHeader" />
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label for="ContentTypeInputText">Content Type</label>
-                    <input type="text" id="ContentTypeInputText" value="@Model.ContentType" />
+                    <input type="text" id="ContentTypeInputText" required="" value="@Model.ContentType" />
                 </div>
             </div>
             <div class="field">
