@@ -5,7 +5,7 @@ namespace InitiativeNepal
     public sealed class EndpointBuilder
     {
         private Config Config { get; set; }
-        private string To { get; set; }
+        private string Destination { get; set; }
         private string Message { get; set; }
         public static EndpointBuilder Initialize => new EndpointBuilder();
 
@@ -23,13 +23,13 @@ namespace InitiativeNepal
 
         public EndpointBuilder SendTo(string phoneNumber)
         {
-            this.To = phoneNumber;
+            this.Destination = phoneNumber;
             return this;
         }
 
         public string Get()
         {
-            if (string.IsNullOrWhiteSpace(this.Config?.ApiUrl) || string.IsNullOrWhiteSpace(this.Config.AuthenticationToken))
+            if (string.IsNullOrWhiteSpace(this.Config?.ApiUrl) || string.IsNullOrWhiteSpace(this.Config.Username) || string.IsNullOrWhiteSpace(this.Config.Password))
             {
                 return string.Empty;
             }
@@ -37,10 +37,11 @@ namespace InitiativeNepal
             var builder = new StringBuilder();
             builder.Append(this.Config.ApiUrl);
             builder.Append("?");
-            builder.Append($"token={this.Config.AuthenticationToken}");
-            builder.Append($"&sender={this.Config.SenderId}");
-            builder.Append($"&to={this.To}");
+            builder.Append($"username={this.Config.Username}");
+            builder.Append($"&password={this.Config.Password}");
             builder.Append($"&message={this.Message}");
+            builder.Append($"&destination={this.Destination}");
+            builder.Append($"&sender={this.Config.SenderId}");
 
             return builder.ToString();
         }

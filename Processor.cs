@@ -25,7 +25,7 @@ namespace InitiativeNepal
             if (!this.IsEnabled)
                 return;
 
-            if (string.IsNullOrWhiteSpace(config.AuthenticationToken))
+            if (string.IsNullOrWhiteSpace(config.Username) || string.IsNullOrWhiteSpace(config.Password))
                 this.IsEnabled = false;
         }
 
@@ -66,7 +66,7 @@ namespace InitiativeNepal
                     using (var reader = new StreamReader(stream))
                     {
                         string data = await reader.ReadToEndAsync().ConfigureAwait(false);
-                        dynamic result = JObject.Parse(data);
+                        dynamic result = data.Split(':').FirstOrDefault();
 
                         if (result == null)
                         {
@@ -74,11 +74,11 @@ namespace InitiativeNepal
                             return false;
                         }
 
-                        int status = (int) result.response_code;
+                        int status = int.Parse(result);
 
                         switch (status)
                         {
-                            case 200:
+                            case 1701:
                                 sms.Status = Status.Completed;
                                 break;
                             default:
